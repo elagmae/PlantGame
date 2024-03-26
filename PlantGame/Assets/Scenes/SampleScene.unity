@@ -6032,9 +6032,11 @@ GameObject:
   - component: {fileID: 2433943698542779025}
   - component: {fileID: 888022229651561557}
   - component: {fileID: 3877616102176865334}
+  - component: {fileID: 7792028083553762561}
   - component: {fileID: 1230235121696383507}
   - component: {fileID: 7792028083553762559}
   - component: {fileID: 7792028083553762560}
+  - component: {fileID: 7792028083553762562}
   m_Layer: 5
   m_Name: Graine_2
   m_TagString: Untagged
@@ -6301,9 +6303,11 @@ GameObject:
   - component: {fileID: 8784017326024132558}
   - component: {fileID: 1001940444750753811}
   - component: {fileID: 1049407005320467339}
+  - component: {fileID: 8784017326024132560}
   - component: {fileID: 6443743748348197926}
   - component: {fileID: 1195452185629314051}
   - component: {fileID: 8784017326024132559}
+  - component: {fileID: 8784017326024132561}
   m_Layer: 5
   m_Name: Graine_3
   m_TagString: Untagged
@@ -6751,9 +6755,11 @@ GameObject:
   - component: {fileID: 8720739744272334897}
   - component: {fileID: 1273919697}
   - component: {fileID: 847155279680204750}
+  - component: {fileID: 8720739744272334899}
   - component: {fileID: 2579191764585184819}
   - component: {fileID: 3952058794270883696}
   - component: {fileID: 8720739744272334898}
+  - component: {fileID: 8720739744272334900}
   m_Layer: 5
   m_Name: Graine_1
   m_TagString: Untagged
@@ -6854,7 +6860,64 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _plantData: {fileID: 11400000, guid: da1d35e8dd46c3049bce2fe6cfb14889, type: 2}
   _sprite: {fileID: 7792028083553762559}
-  _click: {fileID: 1230235121696383507}
+--- !u!114 &7792028083553762561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41660786115494931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 606589b881f7c344ab989277e1c2a841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _plantData: {fileID: 11400000, guid: da1d35e8dd46c3049bce2fe6cfb14889, type: 2}
+--- !u!61 &7792028083553762562
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41660786115494931}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!224 &8226843263418246039
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6896,7 +6959,64 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _plantData: {fileID: 11400000, guid: dc2c2970c1b06c24f898b4eb0305f67e, type: 2}
   _sprite: {fileID: 3952058794270883696}
-  _click: {fileID: 2579191764585184819}
+--- !u!114 &8720739744272334899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6974709644503433364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 606589b881f7c344ab989277e1c2a841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _plantData: {fileID: 11400000, guid: dc2c2970c1b06c24f898b4eb0305f67e, type: 2}
+--- !u!61 &8720739744272334900
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6974709644503433364}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!222 &8784017326024132558
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6919,7 +7039,64 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _plantData: {fileID: 11400000, guid: 219ffb094ac3a074781c5ad06d4e50ce, type: 2}
   _sprite: {fileID: 1195452185629314051}
-  _click: {fileID: 6443743748348197926}
+--- !u!114 &8784017326024132560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2230602099012087092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 606589b881f7c344ab989277e1c2a841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _plantData: {fileID: 11400000, guid: 219ffb094ac3a074781c5ad06d4e50ce, type: 2}
+--- !u!61 &8784017326024132561
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2230602099012087092}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
