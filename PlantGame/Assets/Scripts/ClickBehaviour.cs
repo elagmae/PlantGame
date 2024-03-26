@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 /// <summary>
-/// Permet au joueur de cliquer sur la graine et la parcelle (dans le but de planter ses graines).
+/// Permet au joueur de planter ses graines sur les parcelles proposées.
 /// </summary>
 
 public class ClickBehaviour : MonoBehaviour, IPointerClickHandler
@@ -22,13 +22,17 @@ public class ClickBehaviour : MonoBehaviour, IPointerClickHandler
     {
         if (this.CompareTag("Parcelle") && CurrentPlant != null && this.transform.childCount == 0 && CurrentAmount > 0)
         {
-            Debug.Log(name);
             var plant = Instantiate(CurrentPlant, this.gameObject.transform, true);
             plant.transform.localPosition = UnityEngine.Vector2.zero;
+
             var plantData = CurrentPlant.GetComponent<SeedCount>()._plantData;
             _inventoryManager.m_Plants[plantData]--;
             CurrentAmount--;
+
+            plant.GetComponent<SpriteRenderer>().sortingOrder = 10 - Mathf.CeilToInt(transform.position.y);
+
             Destroy(plant.GetComponent<Image>());
+            Destroy(plant.GetComponent<CanvasRenderer>());
             plant.GetComponent<PlantGrow>().PlantSeed();
         }
 
@@ -39,7 +43,6 @@ public class ClickBehaviour : MonoBehaviour, IPointerClickHandler
                 CurrentPlant = this.gameObject;
                 CurrentAmount = _inventoryManager.m_Plants[_plantData];
             }
-
             catch(KeyNotFoundException e)
             {
             }

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba32911e3d7fea4f9f1861052d21963, type: 3}
   m_Name: Plant1
   m_EditorClassIdentifier: 
-  <Price>k__BackingField: 12
+  <PriceBuy>k__BackingField: 12
+  <PriceSell>k__BackingField: 20
   <Time>k__BackingField: 2
-  <PlantSprite>k__BackingField: {fileID: 0}
+  <PlantSprite>k__BackingField: {fileID: 21300000, guid: bbcfd5673068fca4c850d9dc21877f46, type: 3}
   <Name>k__BackingField: 1
