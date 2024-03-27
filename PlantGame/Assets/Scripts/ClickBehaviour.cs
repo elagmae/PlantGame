@@ -10,9 +10,9 @@ using UnityEngine.UI;
 public class ClickBehaviour : MonoBehaviour, IPointerClickHandler
 {
     [HideInInspector]
-    public static GameObject CurrentPlant;
+    public static GameObject CurrentPlant { get; private set; }
     [HideInInspector]
-    public static int CurrentAmount;
+    public static int CurrentAmount { get; private set; }
     [SerializeField]
     private InventoryManager _inventoryManager;
     [SerializeField]
