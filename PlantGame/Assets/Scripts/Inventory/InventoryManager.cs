@@ -1,23 +1,22 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// G�re l'inventaire du joueur selon ses achats.
+/// Gère l'inventaire du joueur selon ses achats.
 /// </summary>
-
 public class InventoryManager : MonoBehaviour
 {
-    public Dictionary<PlantData, int> m_Plants = new Dictionary<PlantData, int>(); 
+    public Dictionary<PlantData, int> DictPlants { get; private set; } = new Dictionary<PlantData, int>();
 
-    public void Bought(PlantData _plantData)
+    public void Bought(PlantData plantData)
     {
-        if (m_Plants.ContainsKey(_plantData))
+        if (DictPlants.ContainsKey(plantData))
         {
-            m_Plants[_plantData]++;
+            DictPlants[plantData]++;
         }
         else
         {
-            m_Plants.Add(_plantData, 1);
+            DictPlants.Add(plantData, 1);
         }
     }
 }

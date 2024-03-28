@@ -1,30 +1,30 @@
-using TMPro;
+ï»¿using TMPro;
 using UnityEngine;
 
 /// <summary>
-/// Compte le nombre de graines possédées par le joueur.
+/// Compte le nombre de graines possÃ©dÃ©es par le joueur.
 /// </summary>
- 
 public class SeedCount : MonoBehaviour
 {
-    [SerializeField]
-    public PlantData _plantData;
     [SerializeField]
     private BuyingBehaviour _buyingBehaviour;
     [SerializeField]
     private InventoryManager _inventoryManager;
 
-    private void Update()
-    {
-        Possess();
-    }
+    [field: SerializeField]
+    public PlantData PlantData { get; private set; }
 
     public void Possess()
     {
-        if (this._plantData == _buyingBehaviour._plantData && _inventoryManager.m_Plants.ContainsKey(_plantData))
+        if (this.PlantData == _buyingBehaviour.PlantData && _inventoryManager.DictPlants.ContainsKey(PlantData))
         {
             var plantPossess = GetComponentInChildren<TextMeshProUGUI>();
-            plantPossess.text = _inventoryManager.m_Plants[_plantData].ToString();
+            plantPossess.text = _inventoryManager.DictPlants[PlantData].ToString();
         }
+    }
+
+    private void Update()
+    {
+        Possess();
     }
 }

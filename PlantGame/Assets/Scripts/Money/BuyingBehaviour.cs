@@ -1,34 +1,37 @@
-using TMPro;
+ï»¿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Permet au joueur d'acheter une plante (en appuyant sur le bouton dédié à cette même plante).
+/// Permet au joueur d'acheter une plante (en appuyant sur le bouton dÃ©diÃ© Ã  cette mÃªme plante).
 /// </summary>
-
 public class BuyingBehaviour : MonoBehaviour
 {
-    public PlantData _plantData;
     [SerializeField]
     private Button _button;
     [SerializeField]
     private InventoryManager _inventoryManager;
     [SerializeField]
     private TextMeshProUGUI _priceUI;
+    [SerializeField]
+    private AudioSource _audioSource;
+
+    [field : SerializeField]
+    public PlantData PlantData { get; private set; }
 
     private void Start()
     {
-        _priceUI.text = _plantData.PriceBuy.ToString();
+        _priceUI.text = PlantData.PriceBuy.ToString();
         _button.onClick.AddListener(TaskOnClick);
     }
 
-    void TaskOnClick()
+    private void TaskOnClick()
     {
-        if (MoneyManager.Instance._money >= _plantData.PriceBuy)
+        if (MoneyManager.Instance.Money >= PlantData.PriceBuy)
         {
-            MoneyManager.Instance.Depense(_plantData.PriceBuy);
-            _inventoryManager.Bought(_plantData);
+            _audioSource.Play();
+            MoneyManager.Instance.Depense(PlantData.PriceBuy);
+            _inventoryManager.Bought(PlantData);
         }
     }
-
 }

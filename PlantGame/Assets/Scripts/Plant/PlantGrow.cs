@@ -1,16 +1,16 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 
 /// <summary>
-/// Permet aux graines de se transformer en plantes après un temps donné.
+/// Permet aux graines de se transformer en plantes aprÃ¨s un temps donnÃ©.
 /// </summary>
-
 public class PlantGrow : MonoBehaviour
-{    
+{
     [SerializeField]
     private PlantData _plantData;
     [SerializeField]
     private SpriteRenderer _spriteRenderer;
+
     public bool HasGrew { get; private set; } = false;
 
     public void PlantSeed()
@@ -18,7 +18,7 @@ public class PlantGrow : MonoBehaviour
         StartCoroutine(Grow());
     }
 
-    IEnumerator Grow()
+    public IEnumerator Grow()
     {
         transform.localScale = Vector3.one;
         yield return new WaitForSeconds(_plantData.Time);

@@ -1,16 +1,31 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 /// <summary>
 /// Affichage et gestion de l'argent total du joueur.
 /// </summary>
-
 public class MoneyManager : MonoBehaviour
 {
-    public float _money;
-    public static MoneyManager Instance;
     [SerializeField]
     private TextMeshProUGUI _moneyUI;
+
+    public static MoneyManager Instance { get; private set; }
+
+    [field: SerializeField]
+    public float Money { get; private set; }
+
+    public void Depense(float depense)
+    {
+        if (Money >= depense)
+        {
+            Money -= depense;
+        }
+    }
+
+    public void Sell(float receipt)
+    {
+        Money += receipt;
+    }
 
     private void Awake()
     {
@@ -24,27 +39,14 @@ public class MoneyManager : MonoBehaviour
         }
     }
 
-    public void Depense(float depense)
+    private void Update()
     {
-        if(_money >= depense)
-        {
-            _money -= depense;
-        }
-    }
-
-    public void Sell(float receipt)
-    {
-        _money += receipt;
-    }
-
-    void Update()
-    {
-        _moneyUI.text = _money.ToString();
+        _moneyUI.text = Money.ToString();
     }
 
     private void OnDestroy()
     {
-        if(Instance == this)
+        if (Instance == this)
         {
             Instance = null;
         }
