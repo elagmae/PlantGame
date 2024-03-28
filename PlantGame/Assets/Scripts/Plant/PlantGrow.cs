@@ -10,6 +10,8 @@ public class PlantGrow : MonoBehaviour
     private PlantData _plantData;
     [SerializeField]
     private SpriteRenderer _spriteRenderer;
+    [SerializeField]
+    private AudioManager _audioManager;
 
     public bool HasGrew { get; private set; } = false;
 
@@ -18,11 +20,13 @@ public class PlantGrow : MonoBehaviour
         StartCoroutine(Grow());
     }
 
+    // permet à la plante de grandir une fois plantée selon un temps donné (cf. scriptable object)
     public IEnumerator Grow()
     {
         transform.localScale = Vector3.one;
         yield return new WaitForSeconds(_plantData.Time);
         _spriteRenderer.sprite = _plantData.PlantSprite;
+        _audioManager.PlaySound();
         HasGrew = true;
     }
 }

@@ -11,6 +11,8 @@ public class PlantSelling : MonoBehaviour, IPointerClickHandler
     [SerializeField]
     private GameObject _coinPrefab;
 
+    /* Quand le joueur cliquera sur la plante déjà poussée, il gagnera de l'argent
+    (système de vente) */
     public void OnPointerClick(PointerEventData pointerEventData)
     {
         var plant = this.GetComponent<PlantGrow>();

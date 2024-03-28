@@ -7,6 +7,7 @@ using UnityEngine.UI;
 /// </summary>
 public class BuyingBehaviour : MonoBehaviour
 {
+    // bouton représentant la graine à l'achat
     [SerializeField]
     private Button _button;
     [SerializeField]
@@ -23,12 +24,16 @@ public class BuyingBehaviour : MonoBehaviour
 
     private void Start()
     {
+        // met en place les éléments d'UI pré-requis
         _priceUI.text = PlantData.PriceBuy.ToString();
         _button.onClick.AddListener(TaskOnClick);
     }
 
+    // Réagir à chaque click du joueur sur une graine à l'achat
     private void TaskOnClick()
     {
+        /* Si la graine n'est pas trop chère pour le joueur, il peut alors l'acheter (il perdra
+        donc un peu d'argent et se verra attribuer la graine dans son inventaire)*/
         if (MoneyManager.Instance.Money >= PlantData.PriceBuy)
         {
             _audioManagerPick.PlaySound();

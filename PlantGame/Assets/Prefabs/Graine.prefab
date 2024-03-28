@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -4154855226202369269}
   - component: {fileID: -4093405269117189889}
   - component: {fileID: 3125899609844778961}
+  - component: {fileID: 685941952364961722}
   m_Layer: 0
   m_Name: Graine
   m_TagString: Untagged
@@ -102,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _plantData: {fileID: 0}
   _spriteRenderer: {fileID: 0}
+  _audioManager: {fileID: 685941952364961722}
 --- !u!114 &-4154855226202369269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,7 +175,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 698db897e571ced4284cbdf878d6b7fe, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.8
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -257,3 +259,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &685941952364961722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5325724118330844596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f59e7c29439d8d4782de5fa103e0f53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSource: {fileID: 3125899609844778961}
+  _audioClip: {fileID: 8300000, guid: bf7d0acc580b59b40ab0e9fb892eb5cd, type: 3}

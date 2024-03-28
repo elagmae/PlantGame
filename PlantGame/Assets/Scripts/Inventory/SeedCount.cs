@@ -14,6 +14,7 @@ public class SeedCount : MonoBehaviour
     [field: SerializeField]
     public PlantData PlantData { get; private set; }
 
+    // prend les infos de l'inventaire (nombre de graines possédées) et les retranscrit en UI
     public void Possess()
     {
         if (this.PlantData == _buyingBehaviour.PlantData && _inventoryBehaviour.DictPlants.ContainsKey(PlantData))

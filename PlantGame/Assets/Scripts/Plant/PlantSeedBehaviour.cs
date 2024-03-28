@@ -19,12 +19,13 @@ public class PlantSeedBehaviour : MonoBehaviour, IPointerClickHandler
     // game object d'abord vide, qui se remplira avec les données de la graine cliquée
     public static GameObject CurrentPlant { get; private set; }
 
+    // prend en compte le nombre de graines possédées par rapport au type cliqué par le joueur
     public static int CurrentAmount { get; private set; }
 
     public void OnPointerClick(PointerEventData pointerEventData)
     {
-        /*Si le joueur clique sur une parcelle, que la parcelle est vide, et qu'une graine est
-        déjà sélectionnée et possédée*/
+        /* Si le joueur clique sur une parcelle, que la parcelle est vide, et qu'une graine est
+        déjà sélectionnée et possédée */
         if (this.CompareTag("Parcelle") && CurrentPlant != null && this.transform.childCount == 0 && CurrentAmount > 0)
         {
             // le joueur plante sa graine dans la parcelle
@@ -51,8 +52,9 @@ public class PlantSeedBehaviour : MonoBehaviour, IPointerClickHandler
                 CurrentPlant = this.gameObject;
 
                 /* on prend en compte le nombre de graine du type cliqué pour savoir si on en
-                possède assez afin de la planter au prochain click*/
+                possède assez afin de la planter au prochain click */
                 CurrentAmount = _inventoryBehaviour.DictPlants[_plantData];
+
                 if (CurrentAmount > 0)
                 {
                     _audioManagerPick.PlaySound();

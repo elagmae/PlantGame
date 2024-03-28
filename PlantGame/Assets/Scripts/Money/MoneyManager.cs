@@ -9,11 +9,14 @@ public class MoneyManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _moneyUI;
 
+    /* Singleton utilisé pour la gestion d'argent (variable Money) : sa valeur est modifiée
+    différemment par plusieurs scripts */
     public static MoneyManager Instance { get; private set; }
 
     [field: SerializeField]
     public float Money { get; private set; }
 
+    // Retire de l'argent au joueur à chaque achat de graine
     public void Depense(float depense)
     {
         if (Money >= depense)
@@ -22,6 +25,7 @@ public class MoneyManager : MonoBehaviour
         }
     }
 
+    // Ajoute de l'argent au joueur à chaque vente de plante
     public void Sell(float receipt)
     {
         Money += receipt;
@@ -41,6 +45,7 @@ public class MoneyManager : MonoBehaviour
 
     private void Update()
     {
+        // gère la valeur de l'argent dans l'UI
         _moneyUI.text = Money.ToString();
     }
 

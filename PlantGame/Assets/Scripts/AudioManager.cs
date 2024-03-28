@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySound()
     {
+        // joue le son choisi une seule fois
         _audioSource.PlayOneShot(_audioClip);
     }
 }
