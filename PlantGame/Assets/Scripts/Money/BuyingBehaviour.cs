@@ -10,11 +10,13 @@ public class BuyingBehaviour : MonoBehaviour
     [SerializeField]
     private Button _button;
     [SerializeField]
-    private InventoryManager _inventoryManager;
+    private InventoryBehaviour _inventoryBehaviour;
     [SerializeField]
     private TextMeshProUGUI _priceUI;
     [SerializeField]
-    private AudioSource _audioSource;
+    private AudioManager _audioManagerPick;
+    [SerializeField]
+    private AudioManager _audioManagerCantpick;
 
     [field : SerializeField]
     public PlantData PlantData { get; private set; }
@@ -29,9 +31,13 @@ public class BuyingBehaviour : MonoBehaviour
     {
         if (MoneyManager.Instance.Money >= PlantData.PriceBuy)
         {
-            _audioSource.Play();
+            _audioManagerPick.PlaySound();
             MoneyManager.Instance.Depense(PlantData.PriceBuy);
-            _inventoryManager.Bought(PlantData);
+            _inventoryBehaviour.Bought(PlantData);
+        }
+        else if (MoneyManager.Instance.Money < PlantData.PriceBuy)
+        {
+            _audioManagerCantpick.PlaySound();
         }
     }
 }

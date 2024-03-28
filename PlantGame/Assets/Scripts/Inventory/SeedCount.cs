@@ -9,17 +9,17 @@ public class SeedCount : MonoBehaviour
     [SerializeField]
     private BuyingBehaviour _buyingBehaviour;
     [SerializeField]
-    private InventoryManager _inventoryManager;
+    private InventoryBehaviour _inventoryBehaviour;
 
     [field: SerializeField]
     public PlantData PlantData { get; private set; }
 
     public void Possess()
     {
-        if (this.PlantData == _buyingBehaviour.PlantData && _inventoryManager.DictPlants.ContainsKey(PlantData))
+        if (this.PlantData == _buyingBehaviour.PlantData && _inventoryBehaviour.DictPlants.ContainsKey(PlantData))
         {
             var plantPossess = GetComponentInChildren<TextMeshProUGUI>();
-            plantPossess.text = _inventoryManager.DictPlants[PlantData].ToString();
+            plantPossess.text = _inventoryBehaviour.DictPlants[PlantData].ToString();
         }
     }
 

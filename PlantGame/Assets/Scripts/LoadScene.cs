@@ -6,9 +6,17 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class LoadScene : MonoBehaviour
 {
+    [SerializeField]
+    private AudioManager _audioManagerMusic;
+    [SerializeField]
+    private AudioManager _audioManagerButton;
+
     public void ChangeScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+        DontDestroyOnLoad(_audioManagerMusic);
+        DontDestroyOnLoad(_audioManagerButton);
+        _audioManagerButton.PlaySound();
     }
 
     public void Exit()

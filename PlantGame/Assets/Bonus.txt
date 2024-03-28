@@ -1,0 +1,3 @@
+Différents types de graines (avec des temps de pousse différents, des prix à l'achat et à la vente différents).
+
+Feedback / Juice (Sons, animations DOTWeen).

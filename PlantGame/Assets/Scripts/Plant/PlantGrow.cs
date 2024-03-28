@@ -13,7 +13,7 @@ public class PlantGrow : MonoBehaviour
 
     public bool HasGrew { get; private set; } = false;
 
-    public void PlantSeed()
+    public void HarvestPlant()
     {
         StartCoroutine(Grow());
     }

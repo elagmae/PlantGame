@@ -5,12 +5,16 @@ using UnityEngine.EventSystems;
 /// <summary>
 /// Permet au joueur de planter ses graines sur les parcelles proposées.
 /// </summary>
-public class ClickBehaviour : MonoBehaviour, IPointerClickHandler
+public class PlantSeedBehaviour : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField]
-    private InventoryManager _inventoryManager;
+    private InventoryBehaviour _inventoryBehaviour;
     [SerializeField]
     private PlantData _plantData;
+    [SerializeField]
+    private AudioManager _audioManagerPick;
+    [SerializeField]
+    private AudioManager _audioManagerUnpick;
 
     // game object d'abord vide, qui se remplira avec les données de la graine cliquée
     public static GameObject CurrentPlant { get; private set; }
@@ -29,12 +33,12 @@ public class ClickBehaviour : MonoBehaviour, IPointerClickHandler
 
             // le joueur perd la graine de son inventaire
             var plantData = CurrentPlant.GetComponent<SeedCount>().PlantData;
-            _inventoryManager.DictPlants[plantData]--;
+            _inventoryBehaviour.DictPlants[plantData]--;
             CurrentAmount--;
 
-            // la plannte pousse
+            // la plante pousse
             plant.GetComponent<SpriteRenderer>().sortingOrder = 10 - Mathf.CeilToInt(transform.position.y);
-            plant.GetComponent<PlantGrow>().PlantSeed();
+            plant.GetComponent<PlantGrow>().HarvestPlant();
         }
 
         // Si le joueur clique sur une graine
@@ -48,10 +52,19 @@ public class ClickBehaviour : MonoBehaviour, IPointerClickHandler
 
                 /* on prend en compte le nombre de graine du type cliqué pour savoir si on en
                 possède assez afin de la planter au prochain click*/
-                CurrentAmount = _inventoryManager.DictPlants[_plantData];
+                CurrentAmount = _inventoryBehaviour.DictPlants[_plantData];
+                if (CurrentAmount > 0)
+                {
+                    _audioManagerPick.PlaySound();
+                }
+                else if (CurrentAmount == 0)
+                {
+                    _audioManagerUnpick.PlaySound();
+                }
             }
             catch (KeyNotFoundException)
             {
+                _audioManagerUnpick.PlaySound();
             }
         }
     }

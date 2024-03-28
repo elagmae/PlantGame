@@ -17,4 +17,4 @@ MonoBehaviour:
   <Time>k__BackingField: 3
   <PlantSprite>k__BackingField: {fileID: 21300000, guid: abeb258b6f91db84b8ce87c034202967, type: 3}
   <Name>k__BackingField: 2
-  PlantPrefab: {fileID: 347957166524757747, guid: 1af4028e3906d31468867b152614dcff, type: 3}
+  <PlantPrefab>k__BackingField: {fileID: 347957166524757747, guid: 1af4028e3906d31468867b152614dcff, type: 3}

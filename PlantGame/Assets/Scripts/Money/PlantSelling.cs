@@ -1,10 +1,9 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
 /// <summary>
 /// Permet au joueur de vendre ses plantes.
 /// </summary>
-
 public class PlantSelling : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField]
