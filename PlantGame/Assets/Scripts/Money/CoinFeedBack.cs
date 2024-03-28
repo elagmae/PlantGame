@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// Gère l'animation de l'argent gagné après la récolte.
 /// </summary>
-public class CoinBehaviour : MonoBehaviour
+public class CoinFeedback : MonoBehaviour
 {
     public void CoinMovement()
     {

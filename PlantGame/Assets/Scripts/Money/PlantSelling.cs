@@ -20,7 +20,7 @@ public class PlantSelling : MonoBehaviour, IPointerClickHandler
         if (plant.HasGrew)
         {
             var coin = Instantiate(_coinPrefab, this.transform.position, this.transform.rotation);
-            coin.GetComponent<CoinBehaviour>().CoinMovement();
+            coin.GetComponent<CoinFeedback>().CoinMovement();
 
             MoneyManager.Instance.Sell(_plantData.PriceSell);
             Destroy(this.gameObject);
