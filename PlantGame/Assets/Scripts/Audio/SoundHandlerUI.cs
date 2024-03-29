@@ -6,11 +6,8 @@ using UnityEngine.EventSystems;
 /// </summary>
 public class SoundHandlerUI : MonoBehaviour, IPointerEnterHandler
 {
-    [SerializeField]
-    private AudioManager _audioManagerHighlighted;
-
     public void OnPointerEnter(PointerEventData pointerData)
     {
-        _audioManagerHighlighted.PlaySound();
+        AudioManager.Instance.PlaySound("highlighted");
     }
 }

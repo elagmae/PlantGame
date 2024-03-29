@@ -10,8 +10,6 @@ public class PlantGrow : MonoBehaviour
     private PlantData _plantData;
     [SerializeField]
     private SpriteRenderer _spriteRenderer;
-    [SerializeField]
-    private AudioManager _audioManager;
 
     public bool HasGrew { get; private set; } = false;
 
@@ -26,7 +24,7 @@ public class PlantGrow : MonoBehaviour
         transform.localScale = Vector3.one;
         yield return new WaitForSeconds(_plantData.Time);
         _spriteRenderer.sprite = _plantData.PlantSprite;
-        _audioManager.PlaySound();
+        AudioManager.Instance.PlaySound("grown");
         HasGrew = true;
     }
 }

@@ -6,13 +6,6 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class LoadScene : MonoBehaviour
 {
-    [SerializeField]
-    private AudioManager _audioManagerMusic;
-    [SerializeField]
-    private AudioManager _audioManagerButtonClicked;
-    [SerializeField]
-    private AudioManager _audioManagerButtonHighlighted;
-
     public void ChangeScene(string sceneName)
     {
         // change la scène actuelle à la scène de nom sceneName
@@ -20,16 +13,17 @@ public class LoadScene : MonoBehaviour
 
         /* Joue et ne détruit pas les sons joués dans le menu au moment du changement de scène
         (musique de fond + sons des boutons au moment du click) */
-        DontDestroyOnLoad(_audioManagerMusic);
-        DontDestroyOnLoad(_audioManagerButtonClicked);
-        _audioManagerButtonClicked.PlaySound();
+        AudioManager.Instance.PlaySound("clicked");
     }
 
     public void Exit()
     {
         // Quitte le jeu (build)
-        DontDestroyOnLoad(_audioManagerButtonClicked);
-        _audioManagerButtonClicked.PlaySound();
         Application.Quit();
+    }
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
     }
 }

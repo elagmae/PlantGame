@@ -14,10 +14,6 @@ public class BuyingBehaviour : MonoBehaviour
     private InventoryBehaviour _inventoryBehaviour;
     [SerializeField]
     private TextMeshProUGUI _priceUI;
-    [SerializeField]
-    private AudioManager _audioManagerPick;
-    [SerializeField]
-    private AudioManager _audioManagerCantpick;
 
     [field : SerializeField]
     public PlantData PlantData { get; private set; }
@@ -36,13 +32,13 @@ public class BuyingBehaviour : MonoBehaviour
         donc un peu d'argent et se verra attribuer la graine dans son inventaire)*/
         if (MoneyManager.Instance.Money >= PlantData.PriceBuy)
         {
-            _audioManagerPick.PlaySound();
+            AudioManager.Instance.PlaySound("pick");
             MoneyManager.Instance.Depense(PlantData.PriceBuy);
             _inventoryBehaviour.Bought(PlantData);
         }
         else if (MoneyManager.Instance.Money < PlantData.PriceBuy)
         {
-            _audioManagerCantpick.PlaySound();
+            AudioManager.Instance.PlaySound("unpick");
         }
     }
 }

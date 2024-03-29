@@ -1,1 +1,2 @@
-https://comigo.itch.io/farm-puzzle-animals
+https://comigo.itch.io/farm-puzzle-animals (sprites et UI)
+FreeSound (appartenance des sons modifiés sur Reaper)
