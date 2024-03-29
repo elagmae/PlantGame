@@ -19,10 +19,6 @@ public class PlantData : ScriptableObject
     [field: SerializeField]
     public Sprite PlantSprite { get; private set; }
 
-    // Nom de la plante
-    [field: SerializeField]
-    public string Name { get; private set; }
-
     // Prefab de la plante (pré-pousse)
     [field : SerializeField]
     public GameObject PlantPrefab { get; private set; }

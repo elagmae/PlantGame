@@ -9,7 +9,9 @@ public class LoadScene : MonoBehaviour
     [SerializeField]
     private AudioManager _audioManagerMusic;
     [SerializeField]
-    private AudioManager _audioManagerButton;
+    private AudioManager _audioManagerButtonClicked;
+    [SerializeField]
+    private AudioManager _audioManagerButtonHighlighted;
 
     public void ChangeScene(string sceneName)
     {
@@ -19,13 +21,15 @@ public class LoadScene : MonoBehaviour
         /* Joue et ne détruit pas les sons joués dans le menu au moment du changement de scène
         (musique de fond + sons des boutons au moment du click) */
         DontDestroyOnLoad(_audioManagerMusic);
-        DontDestroyOnLoad(_audioManagerButton);
-        _audioManagerButton.PlaySound();
+        DontDestroyOnLoad(_audioManagerButtonClicked);
+        _audioManagerButtonClicked.PlaySound();
     }
 
     public void Exit()
     {
         // Quitte le jeu (build)
+        DontDestroyOnLoad(_audioManagerButtonClicked);
+        _audioManagerButtonClicked.PlaySound();
         Application.Quit();
     }
 }
